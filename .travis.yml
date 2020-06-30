@@ -1,4 +1,4 @@
-name: Chisel3 Jar Package CI
+name: Mill Cache Package CI
 language: python
 script:
   - make prepare
