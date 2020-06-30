@@ -21,13 +21,15 @@ def get_resource_name(name):
 def get_resource_string(name):
     return pkg_resources.resource_string(__name__, name)
 
+source = get_resource_name('assets/cache.tar.gz')
+
 class MILLCache:
     def create(self, args):
         jars_path = args.dest_path
         if not os.path.exists(jars_path):
             os.mkdir(jars_path)
 
-        shutil.copyfile(get_resource_name('assets/cache.tar.gz'), os.path.join(jars_path, 'cache.tar.gz'))
+        shutil.copyfile(source, os.path.join(jars_path, 'cache.tar.gz'))
 
 def parse_args():
     parser = argparse.ArgumentParser()
