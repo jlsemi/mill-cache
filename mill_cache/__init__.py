@@ -3,5 +3,5 @@ try:
 except ImportError:
     __version__ = "unknown"
 
-from mill_bin import main
+from mill_cache import main
 source = main.source
