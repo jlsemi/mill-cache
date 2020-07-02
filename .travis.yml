@@ -4,9 +4,15 @@ script:
   - make prepare
   - python setup.py bdist_wheel
 deploy:
-  provider: pypi
-  username: $PYPI_NAME
-  password: $PYPI_PW
-  skip_cleanup: true
-  on:
-    tags: true
+  - provider: pypi
+    username: $PYPI_NAME
+    password: $PYPI_PW
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: releases
+    api_key: $GITHUB_TOKEN
+    file: dist/*.whl
+    skip_cleanup: true
+    on:
+      tags: true
